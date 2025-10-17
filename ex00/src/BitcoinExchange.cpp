@@ -6,13 +6,14 @@
 /*   By: earnera <earnera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 12:38:51 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/13 15:25:38 by earnera          ###   ########.fr       */
+/*   Updated: 2025/10/14 10:29:15 by earnera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/BitcoinExchange.hpp"
 #include "../includes/colors.hpp"
 #include <utility>
+#include <cstdlib>
 
 std::string trim(std::string& str){
     std::string s = str;
@@ -32,7 +33,6 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& other){
 
 BitcoinExchange::BitcoinExchange(int argc, std::string arg){
     this->parseArg(argc, arg);
-    this->executeArg(arg);
 }
 
 /*******************************DESTRUCTEURS*********************************** */
@@ -112,22 +112,20 @@ void BitcoinExchange::processInput(const std::string &filename)
     {
         std::stringstream ss(line);
         std::string date, valueStr;
-
-        if (!std::getline(ss, date, '|') || !std::getline(ss, valueStr))
+        if (!std::getline(ss, date, '|') || !std::getline(ss, valueStr)){
+            std::cerr << BOLDRED << "Error: bad input : " << line << std::endl;
             continue;
-
+        }
         std::istringstream valueStream(valueStr);
         float value;
         valueStream >> value;
-
         if (valueStream.fail())
         {
-            std::cerr << BOLDRED << "Error: bad input " << line << std::endl;
+            std::cerr << BOLDRED << "Error: bad input : " << line << std::endl;
             continue;
         }
         date = trim(date);
         valueStr = trim(valueStr);
-        
         if(!this->isValidDate(date)){
             std::cerr << BOLDRED << "Error: bad date => " << date << std::endl;
             continue;

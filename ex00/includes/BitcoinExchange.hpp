@@ -6,7 +6,7 @@
 /*   By: earnera <earnera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 12:39:11 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/13 15:00:43 by earnera          ###   ########.fr       */
+/*   Updated: 2025/10/15 08:48:35 by earnera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class BitcoinExchange
                 /*Constructeurs*/
                     BitcoinExchange();
                     BitcoinExchange(const BitcoinExchange& other);
-                    BitcoinExchange(int agrc, std::string arg);
+                    BitcoinExchange(int argc, std::string arg);
 
                 /*Destructeurs*/
                     ~BitcoinExchange();
@@ -57,18 +57,11 @@ class BitcoinExchange
                                 return "Mauvais format";
                             }
                     };
-                    class InvalidDateException : public std::exception
-                    {
-                        public:
-                            const char* what() const throw(){
-                                return "Mauvais format de date";
-                            }
-                    };
                     class FileProblemException : public std::exception
                     {
                         public:
                             const char* what() const throw(){
-                                return "Problème, impossible d'ouvrir le fichier";
+                                return "Impossible d'ouvrir le fichier";
                             }
                     };
 
