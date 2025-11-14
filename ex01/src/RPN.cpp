@@ -6,7 +6,7 @@
 /*   By: earnera <earnera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 08:43:30 by earnera           #+#    #+#             */
-/*   Updated: 2025/10/17 10:18:27 by earnera          ###   ########.fr       */
+/*   Updated: 2025/10/17 11:39:17 by earnera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ RPN::RPN(){}
 RPN::RPN(int argc, char **arg)
 {
     this->calculateArg(argc, arg);
+}
+
+RPN::RPN(const RPN &copy)
+{
+    
 }
 
 /******************************DESTRUCTEURS********************************** */

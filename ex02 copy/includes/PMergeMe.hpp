@@ -6,7 +6,7 @@
 /*   By: earnera <earnera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:01:28 by earnera           #+#    #+#             */
-/*   Updated: 2025/11/13 15:13:49 by earnera          ###   ########.fr       */
+/*   Updated: 2025/11/04 14:44:53 by earnera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,10 @@ class PMergeMe{
         /*Méthodes*/
             void displayUnsorted();
             void displaySort();
-            // void sortVector();
-            std::vector<int>                                    mergeInsertSort(std::vector<int> input);
-            std::vector<int>                                    insertJacobsthal(std::vector<int> bigs, std::vector<int> smalls);
-            std::pair<std::vector<std::pair<int,int> >, int>    make_pairs(const std::vector<int> &input);
-            int                                                 JacobsthalNum(int n);
+            void sortVector();
         /*Attributs*/
         std::vector<int> _vector;
         std::list<int> _list;
-        int             last;
         
     private :
     

@@ -1,0 +1,18 @@
+
+Étape 3: En reprenant la notation des paire P(a, b), j'insère donc le petit élément "a1" de la paire la plus petite P1(a1, b1) (P1 parce que c'est la plus petite, ensuite, P2, P3...) sans faire de comparaisons. Conceptuellement, j'ai maintenant une liste a1, b1, P2, P3... (Conceptuellement parce que je suis en train de faire une liste ou je mélange des éléments (a1, b1), et des paires d'éléments (P2...): mon compilateur me ferait la gueule)
+J'ai commencé par P1.
+Je pourrais insérer le petit élément a2 de P2(a2, b2), mais je l'insérerai  dans une liste de taille 2: 2 comparaisons, et ensuite, je devrais insérer le petit élément a3 de P3 dans une liste de 4 éléments (a1, b1, a2 et b2): donc 3 comparaisons (le nombre de comparaisons pour les listes de taille n est juste au dessus), pour un total de 5 comparaisons.
+ Alors que si j'insère le petit élément a3 de P3(a3, b3) dans la liste [a1, b1, P2] (techniquement, on l'insérera dans [a1, b1, b2]), puis que j'insère a2 (soit dans la liste [a1, b1], soit dans une liste composée de a1, b1 et a3), donc deux insertions dans des listes de taille 3, ça fait chuter le total à 4 comparaisons. 
+Donc les suivants, c'est P3 puis P2.
+Maintenant, j'ai dans ma liste a1, b1, a2, b2, a3 et b3 triés: 6 éléments. Exactement comme la fois précédente, si j'essaye d'insérer a4 dans une liste de 6, j'insérerai a5 dans une liste de 8: donc 3 + 4 = 7 comparaisons, alors que si j’insère a5 puis a4, les deux seront dans des listes d'au plus 7, pour un total de 6 comparaisons.
+Et les suivants: P5, P4.Next one.
+Maintenant, dans ma liste, j'ai a1, b1, a2, b2, a3, b3, a4, b4 a5 et b5: 10 éléments. Le prochain 2^n-1, c'est 15: je peux donc aller jusqu’à P11 (j'ai 10 éléments, dans ma liste, et j'en veux 15: il m'en manque 5, je suis a P5, il me faut donc ceux de P6à P10, il faut donc que je commence par P11), et je ne ferais que des insertions dans des listes de 15 éléments (donc max 4 comparaisons !) .
+Puis P11, P10, P9, P8, P7, P6.
+un petit dernier:
+Quand j'aurais inséré P11, P10, P9, P8, P7 et P6, j'aurais 22 éléments dans ma liste, le prochain 2^n-1, ça sera 31; 31 - 22, il en manque 9, je suis à p11, et je dois prendre le suivant: 11 + 9 + 1 = 21
+Et P21...
+A chaque étape,on a fissionné des paires pour les insérer dans une liste de taille 2^(n-1)-1, et on cherche de combien il faut qu'on avance pour insérer nos éléments dans une liste de taille 2^n-1; on commence à voir un motif émerger:
+A la prochaine étape, il nous manquera ce qu'il nous manque plus deux fois ce qu'il nous manquait à l'étape précédente...
+Donc j’insère mes éléments suivant la suite de Jacobsthal'  j(n+1) = jn + 2* j(n-1)  (j0 = 1, J1 = 3) pour minimiser le nombre de comparaisons (sur Jacobsthal, l'explication de Knuth est plus rigoureuse, même si il va un peu vite dans ses calculs: quand il divise par 3, il "oublie" de multiplier par (2+1) et d'étendre le tout... Mais si on rajoute ces étapes, ça se lit bien; le lien est juste en dessous)
+
+Et j'ai une liste d'éléments triée à renvoyer.
