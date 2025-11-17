@@ -6,7 +6,7 @@
 /*   By: earnera <earnera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:01:28 by earnera           #+#    #+#             */
-/*   Updated: 2025/11/13 15:13:49 by earnera          ###   ########.fr       */
+/*   Updated: 2025/11/17 15:12:07 by earnera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <list>
+#include <deque>
 #include <algorithm>
 #include <iterator>
 #include <bits/stdc++.h>
@@ -36,14 +36,20 @@ class PMergeMe{
         /*Méthodes*/
             void displayUnsorted();
             void displaySort();
-            // void sortVector();
+            /*****Vector****** */
             std::vector<int>                                    mergeInsertSort(std::vector<int> input);
             std::vector<int>                                    insertJacobsthal(std::vector<int> bigs, std::vector<int> smalls);
             std::pair<std::vector<std::pair<int,int> >, int>    make_pairs(const std::vector<int> &input);
+            /******List******* */
+            std::deque<int>                                     mergeInsertSort(std::deque<int> input);
+            std::deque<int>                                     insertJacobsthal(std::deque<int> bigs, std::deque<int> smalls);
+            std::pair<std::deque<std::pair<int,int> >, int>     make_pairs(const std::deque<int> &input);
+            
+
             int                                                 JacobsthalNum(int n);
         /*Attributs*/
         std::vector<int> _vector;
-        std::list<int> _list;
+        std::deque<int> _deque;
         int             last;
         
     private :

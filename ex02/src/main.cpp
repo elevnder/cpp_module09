@@ -6,7 +6,7 @@
 /*   By: earnera <earnera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 11:14:16 by earnera           #+#    #+#             */
-/*   Updated: 2025/11/12 12:59:18 by earnera          ###   ########.fr       */
+/*   Updated: 2025/11/17 15:21:59 by earnera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,13 @@ int main(int argc, char **argv){
         return 1;
     }
     // std::string str = convertArg(argv);
+    std::cout << BOLDBLUE << "*~~~~~~~~~~~~~~~~~~~~~~~~~Sort~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
     PMergeMe PMM(argv);
     PMM.displayUnsorted();
     PMM.displaySort();
+    // std::cout << BOLDBLUE << "*~~~~~~~~~~~~~~~~~~~~~~~~~~Deque~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
+    // PMM.displayUnsorted();
+    // PMM.displaySort();
+    // std::cout << DEFAULTCOL;
     return 0;
 }
